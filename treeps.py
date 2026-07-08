@@ -38,11 +38,12 @@ class tApp:
             y=y+22
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
         # Scroll automático para o fim
+        self.yyy=y
         self.canvas.yview_moveto(0.0)
         self.canvas.xview_moveto(0.0)
         self.root.protocol("WM_DELETE_WINDOW", self.close)
     def saveps(self):
-        self.canvas.postscript(file="output.ps", colormode="color")
+        self.canvas.postscript(file="output.ps", colormode="color",height=self.yyy)
 
         
 
